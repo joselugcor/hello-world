@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="mx.tusoft.market.intermediary.pojos.TRol" table="T_ROL">
+		<id name="idRol" 
+			type="long">
+			<column name="ID_ROL"/>
+		</id>
+		
+		<property name="nombre" type="string">
+			<column name="NOMBRE"/>
+		</property>
+		
+		<set name="tUsuarioRol"
+			 lazy="true"
+			 cascade="all-delete-orphan"
+			 inverse="true">
+			 <key column="ID_ROL"/>
+			<one-to-many class="mx.tusoft.market.intermediary.pojos.TUsuarioRol"/>
+		</set>
+	</class>
+</hibernate-mapping>

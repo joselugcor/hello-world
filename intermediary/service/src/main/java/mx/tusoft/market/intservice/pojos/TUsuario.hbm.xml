@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="mx.tusoft.market.intermediary.pojos.TUsuario" table="T_USUARIO">
+		<id name="idUsuario" type="long">
+			<column name="ID_USUARIO"/>
+		</id>
+		
+		<property name="nombreUsuario" type="string">
+			<column name="NOMBRE_USUARIO"/>
+		</property>
+		
+		<property name="email" type="string">
+			<column name="EMAIL"/>
+		</property>
+		
+		<property name="contrasenia" type="string">
+			<column name="CONTRASENIA"/>
+		</property>
+		
+		<set name="tUsuarioRol"
+			 lazy="true"
+			 cascade="all-delete-orphan"
+			 inverse="true">
+			<key column="ID_USUARIO"/>
+			<one-to-many class="mx.tusoft.market.intermediary.pojos.TUsuarioRol"/>
+		</set>
+	</class>
+</hibernate-mapping>

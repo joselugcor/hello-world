@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="mx.tusoft.market.intermediary.pojos.TUsuarioRol" table="T_USUARIO_ROL">
+		<composite-id name="tUsuarioRolPK" class="mx.tusoft.market.intermediary.pojos.TUsuarioRolPK">
+			<key-property name="idUsuario" type="long">
+				<column name="ID_USUARIO"/>
+			</key-property>
+			
+			<key-property name="idRol" type="long">
+				<column name="ID_ROL"/>
+			</key-property>
+		</composite-id>
+		
+		<many-to-one name="tUsuario" 
+					 class="mx.tusoft.market.intermediary.pojos.TUsuario" 
+					 insert="false" 
+					 update="false">
+			<column name="ID_USUARIO"/>
+		</many-to-one>
+		
+		<many-to-one name="tRol" 
+					 class="mx.tusoft.market.intermediary.pojos.TRol" 
+					 insert="false" 
+					 update="false">
+			<column name="ID_ROL"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>
